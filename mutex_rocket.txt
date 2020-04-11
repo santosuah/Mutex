@@ -1,0 +1,117 @@
+A1
+
+| noop1 + load(o1 R A)                     | inconsistent_effect, interference                  |
+| load(o1 R A) + fly(R A B)                | interference                                       |
+| noop2 + load(o2 R A)                     | inconsistent_effect, interference                  |
+| load(o2 R A) + fly(R A B)                | interference                                       |
+| noop3 + fly(R A B)                       | inconsistent_effect, interference                  |
+| fly(R A B) + noop4                       | inconsistent_effect, interference                  |
+
+
+
+A2
+
+| noop1 + noop3                            | inconsistent_effect, interference, competing_needs |
+| noop1 + load(o1 R A)                     | inconsistent_effect, interference                  |
+| noop2 + unload(o1 R A)                   | inconsistent_effect, interference                  |
+| noop2 + unload(o1 R B)                   | inconsistent_effect, interference                  |
+| noop3 + load(o1 R A)                     | interference, competing_needs                      |
+| noop3 + unload(o1 R A)                   | inconsistent_effect, interference                  |
+| load(o1 R A) + unload(o1 R A)            | inconsistent_effect                                |
+| load(o1 R A) + unload(o1 R B)            | inconsistent_effect                                |
+| load(o1 R A) + noop8                     | interference, competing_needs                      |
+| load(o1 R A) + fly(R A B)                | interference                                       |
+| unload(o1 R A) + unload(o1 R B)          | interference                                       |
+| unload(o1 R A) + noop8                   | interference, competing_needs                      |
+| unload(o1 R A) + fly(R A B)              | interference                                       |
+| unload(o1 R B) + fly(R B A)              | interference                                       |
+| noop4 + noop8                            | inconsistent_effect, interference, competing_needs |
+| noop4 + fly(R A B)                       | inconsistent_effect, interference                  |
+| noop5 + unload(o2 R A)                   | inconsistent_effect, interference                  |
+| noop5 + unload(o2 R B)                   | inconsistent_effect, interference                  |
+| noop6 + load(o2 R A)                     | interference, competing_needs                      |
+| noop6 + unload(o2 R A)                   | inconsistent_effect, interference                  |
+| load(o2 R A) + unload(o2 R A)            | inconsistent_effect                                |
+| load(o2 R A) + unload(o2 R B)            | inconsistent_effect                                |
+| load(o2 R A) + noop8                     | interference, competing_needs                      |
+| load(o2 R A) + fly(R A B)                | interference                                       |
+| unload(o2 R A) + unload(o2 R B)          | interference                                       |
+| unload(o2 R A) + noop8                   | interference, competing_needs                      |
+| unload(o2 R A) + fly(R A B)              | interference                                       |
+| unload(o2 R B) + fly(R B A)              | interference                                       |
+| noop7 + noop8                            | inconsistent_effect, interference, competing_needs |
+| noop7 + fly(R A B)                       | inconsistent_effect, interference                  |
+| noop8 + fly(R A B)                       | interference, competing_needs                      |
+| noop8 + fly(R B A)                       | inconsistent_effect, interference                  |
+| noop9 + fly(R B A)                       | inconsistent_effect, interference                  |
+| noop10 + fly(R A B)                      | interference, competing_needs                      |
+| noop10 + fly(R B A)                      | interference, competing_needs                      |
+| noop10 + noop11                          | inconsistent_effect, interference, competing_needs |
+| fly(R A B) + fly(R B A)                  | inconsistent_effect, interference                  |
+| fly(R A B) + noop11                      | inconsistent_effect, interference                  |
+| fly(R B A) + noop11                      | inconsistent_effect, interference                  |
+
+
+
+A3
+
+| noop1 + noop3                            | inconsistent_effect, interference, competing_needs |
+| noop1 + load(o1 R A)                     | inconsistent_effect, interference                  |
+| noop2 + unload(o1 R A)                   | inconsistent_effect, interference                  |
+| noop2 + unload(o1 R B)                   | inconsistent_effect, interference                  |
+| noop3 + load(o1 R A)                     | interference, competing_needs                      |
+| noop3 + unload(o1 R A)                   | inconsistent_effect, interference                  |
+| noop5 + unload(o1 R B)                   | inconsistent_effect, interference                  |
+| noop5 + load(o1 R B)                     | interference, competing_needs                      |
+| load(o1 R A) + unload(o1 R A)            | inconsistent_effect                                |
+| load(o1 R A) + unload(o1 R B)            | inconsistent_effect                                |
+| load(o1 R A) + noop12                    | interference, competing_needs                      |
+| load(o1 R A) + fly(R A B)                | interference                                       |
+| unload(o1 R A) + unload(o1 R B)          | interference                                       |
+| unload(o1 R A) + load(o1 R B)            | inconsistent_effect                                |
+| unload(o1 R A) + noop12                  | interference, competing_needs                      |
+| unload(o1 R A) + fly(R A B)              | interference                                       |
+| unload(o1 R B) + load(o1 R B)            | inconsistent_effect                                |
+| unload(o1 R B) + noop15                  | interference, competing_needs                      |
+| unload(o1 R B) + fly(R B A)              | interference                                       |
+| load(o1 R B) + noop15                    | interference, competing_needs                      |
+| load(o1 R B) + fly(R B A)                | interference                                       |
+| noop6 + noop8                            | inconsistent_effect, interference, competing_needs |
+| noop6 + load(o2 R A)                     | inconsistent_effect, interference                  |
+| noop7 + noop9                            | inconsistent_effect, interference, competing_needs |
+| noop7 + unload(o2 R A)                   | inconsistent_effect, interference                  |
+| noop7 + unload(o2 R B)                   | inconsistent_effect, interference                  |
+| noop8 + load(o2 R A)                     | interference, competing_needs                      |
+| noop8 + unload(o2 R A)                   | inconsistent_effect, interference                  |
+| noop9 + load(o2 R A)                     | inconsistent_effect, interference                  |
+| noop9 + unload(o2 R A)                   | interference, competing_needs                      |
+| noop9 + unload(o2 R B)                   | interference, competing_needs                      |
+| noop9 + load(o2 R B)                     | inconsistent_effect, interference                  |
+| noop10 + load(o2 R B)                    | inconsistent_effect, interference                  |
+| load(o2 R A) + unload(o2 R A)            | inconsistent_effect                                |
+| load(o2 R A) + unload(o2 R B)            | inconsistent_effect                                |
+| load(o2 R A) + noop12                    | interference, competing_needs                      |
+| load(o2 R A) + fly(R A B)                | interference                                       |
+| unload(o2 R A) + unload(o2 R B)          | interference                                       |
+| unload(o2 R A) + load(o2 R B)            | inconsistent_effect                                |
+| unload(o2 R A) + noop12                  | interference, competing_needs                      |
+| unload(o2 R A) + fly(R A B)              | interference                                       |
+| unload(o2 R B) + load(o2 R B)            | inconsistent_effect                                |
+| unload(o2 R B) + noop15                  | interference, competing_needs                      |
+| unload(o2 R B) + fly(R B A)              | interference                                       |
+| load(o2 R B) + noop15                    | interference, competing_needs                      |
+| load(o2 R B) + fly(R B A)                | interference                                       |
+| noop11 + noop12                          | inconsistent_effect, interference, competing_needs |
+| noop11 + fly(R A B)                      | inconsistent_effect, interference                  |
+| noop12 + fly(R A B)                      | interference, competing_needs                      |
+| noop12 + fly(R B A)                      | inconsistent_effect, interference                  |
+| noop13 + noop15                          | inconsistent_effect, interference, competing_needs |
+| noop13 + fly(R B A)                      | inconsistent_effect, interference                  |
+| noop14 + fly(R A B)                      | interference, competing_needs                      |
+| noop14 + fly(R B A)                      | interference, competing_needs                      |
+| noop14 + noop16                          | inconsistent_effect, interference, competing_needs |
+| noop15 + fly(R A B)                      | inconsistent_effect, interference                  |
+| noop15 + fly(R B A)                      | interference, competing_needs                      |
+| fly(R A B) + fly(R B A)                  | inconsistent_effect, interference                  |
+| fly(R A B) + noop16                      | inconsistent_effect, interference                  |
+| fly(R B A) + noop16                      | inconsistent_effect, interference                  |
