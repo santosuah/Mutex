@@ -25,8 +25,8 @@ A2
 | unload(o1 R A) + noop8                   | interference, competing_needs                      |
 | unload(o1 R A) + fly(R A B)              | interference                                       |
 | unload(o1 R B) + fly(R B A)              | interference                                       |
-| noop4 + noop8                            | inconsistent_effect, interference, competing_needs |
-| noop4 + fly(R A B)                       | inconsistent_effect, interference                  |
+| noop4 + noop6                            | inconsistent_effect, interference, competing_needs |
+| noop4 + load(o2 R A)                     | inconsistent_effect, interference                  |
 | noop5 + unload(o2 R A)                   | inconsistent_effect, interference                  |
 | noop5 + unload(o2 R B)                   | inconsistent_effect, interference                  |
 | noop6 + load(o2 R A)                     | interference, competing_needs                      |
