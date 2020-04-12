@@ -12,7 +12,7 @@ def main():
     unload_o1_R_A = Accion("unload(o1 R A)", ["in(o1 R)", "at(R A)"], ["at(o1 A)","-in(o1 R)"])
     unload_o1_R_B = Accion("unload(o1 R B)", ["in(o1 R)", "at(R B)"], ["at(o1 B)","-in(o1 R)"])
 
-    noop4 = Accion("noop4", ["at(R A)"],   ["at(R A)"])
+    noop4 = Accion("noop4", ["at(o2 A)"],   ["at(o2 A)"])
     noop5 = Accion("noop5", ["in(o2 R)"],  ["in(o2 R)"])
     noop6 = Accion("noop6", ["-at(o2 A)"], ["-at(o2 A)"])
 
